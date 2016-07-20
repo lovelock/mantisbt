@@ -45,3 +45,5 @@ web.config
 
 #libraries
 library/FirePHPCore
+
+/vendor/
