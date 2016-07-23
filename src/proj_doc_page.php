@@ -39,9 +39,11 @@
  * @uses user_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
 require_api( 'database_api.php' );
@@ -59,7 +61,7 @@ $f_project_id = gpc_get_int( 'project_id', helper_get_current_project() );
 
 # Check if project documentation feature is enabled.
 if( OFF == config_get( 'enable_project_documentation' ) || !file_is_uploading_enabled() ) {
-	access_denied();
+	Access::denied();
 }
 
 # Override the current page to make sure we get the appropriate project-specific configuration

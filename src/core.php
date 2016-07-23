@@ -68,7 +68,7 @@ $g_request_time = microtime( true );
 ob_start();
 
 # Load supplied constants
-require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'constant_inc.php' );
+require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'Core' . DIRECTORY_SEPARATOR . 'constant_inc.php' );
 
 # Include default configuration settings
 require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'config_defaults_inc.php' );
@@ -241,7 +241,7 @@ if( !isset( $g_login_anonymous ) ) {
 
 # Set the current timezone
 if( !defined( 'MANTIS_MAINTENANCE_MODE' ) ) {
-	require_api( 'authentication_api.php' );
+	require_api( 'Authentication.php' );
 
 	# To reduce overhead, we assume that the timezone configuration is valid,
 	# i.e. it exists in timezone_identifiers_list(). If not, a PHP NOTICE will

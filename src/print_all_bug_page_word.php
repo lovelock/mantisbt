@@ -49,8 +49,8 @@
  */
 
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'bug_api.php' );
 require_api( 'bugnote_api.php' );
 require_api( 'category_api.php' );

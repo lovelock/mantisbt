@@ -28,7 +28,7 @@
  * @subpackage classes
  */
 
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'user_api.php' );
 
 /**

@@ -38,7 +38,7 @@ if( !defined( 'BUG_MONITOR_LIST_VIEW_INC_ALLOW' ) ) {
 	return;
 }
 
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'collapse_api.php' );
 require_api( 'config_api.php' );
 require_api( 'database_api.php' );

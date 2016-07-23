@@ -35,7 +35,9 @@
  * @uses utility_api.php
  */
 
-require_api( 'access_api.php' );
+use Mantis\Core\Api\Access;
+
+require_api( 'Access.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
 require_api( 'current_user_api.php' );
@@ -336,6 +338,6 @@ function news_is_enabled() {
  */
 function news_ensure_enabled() {
 	if( !news_is_enabled() ) {
-		access_denied();
+		Access::denied();
 	}
 }

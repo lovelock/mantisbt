@@ -33,9 +33,11 @@
  * @uses project_hierarchy_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'config_api.php' );
 require_api( 'current_user_api.php' );
 require_api( 'form_api.php' );
@@ -52,7 +54,7 @@ $f_project_id = gpc_get_int( 'project_id' );
 access_ensure_project_level( config_get( 'manage_project_threshold' ), $f_project_id );
 
 if ( config_get( 'subprojects_enabled' ) == OFF ) {
-	access_denied();
+	Access::denied();
 }
 
 $t_subproject_ids = current_user_get_accessible_subprojects( $f_project_id, true );

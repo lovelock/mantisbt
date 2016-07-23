@@ -35,7 +35,7 @@ if( !defined( 'PRINT_ALL_BUG_OPTIONS_INC_ALLOW' ) ) {
 	return;
 }
 
-require_api( 'authentication_api.php' );
+require_api( 'Authentication.php' );
 require_api( 'database_api.php' );
 require_api( 'form_api.php' );
 require_api( 'helper_api.php' );

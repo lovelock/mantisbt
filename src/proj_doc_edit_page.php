@@ -36,8 +36,10 @@
  * @uses utility_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'config_api.php' );
 require_api( 'database_api.php' );
 require_api( 'file_api.php' );
@@ -53,7 +55,7 @@ require_api( 'utility_api.php' );
 if( OFF == config_get( 'enable_project_documentation' ) ||
 	!file_is_uploading_enabled() ||
 	!file_allow_project_upload() ) {
-	access_denied();
+	Access::denied();
 }
 
 $t_file_id = gpc_get_int( 'file_id' );

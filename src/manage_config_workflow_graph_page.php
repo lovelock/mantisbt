@@ -37,9 +37,11 @@
  * @uses workflow_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
 require_api( 'helper_api.php' );
@@ -52,7 +54,7 @@ require_api( 'string_api.php' );
 auth_reauthenticate();
 
 if( !config_get( 'relationship_graph_enable' ) ) {
-	access_denied();
+	Access::denied();
 }
 
 layout_page_header( lang_get( 'manage_workflow_graph' ) );

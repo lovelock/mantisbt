@@ -39,9 +39,11 @@
  * @uses user_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'compress_api.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
@@ -67,7 +69,7 @@ $t_description = string_display( $t_tag_row['description'] );
 if( !( access_has_global_level( config_get( 'tag_edit_threshold' ) )
 	|| ( auth_get_current_user_id() == $t_tag_row['user_id'] )
 		&& access_has_global_level( config_get( 'tag_edit_own_threshold' ) ) ) ) {
-	access_denied();
+	Access::denied();
 }
 
 layout_page_header( sprintf( lang_get( 'tag_update' ), $t_name ) );

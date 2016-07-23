@@ -38,9 +38,11 @@
  */
 
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
 require_api( 'form_api.php' );
@@ -68,7 +70,7 @@ foreach ( $t_revert_vars as $t_revert ) {
 }
 
 if( !$t_access ) {
-	access_denied();
+	Access::denied();
 }
 
 if( '' != $f_revert ) {

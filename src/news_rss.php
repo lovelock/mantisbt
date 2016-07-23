@@ -37,8 +37,10 @@
  * @uses rssbuilder/class.RSSBuilder.inc.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
 require_api( 'gpc_api.php' );
@@ -59,17 +61,17 @@ news_ensure_enabled();
 
 # make sure RSS syndication is enabled.
 if( OFF == config_get( 'rss_enabled' ) ) {
-	access_denied();
+	Access::denied();
 }
 
 # authenticate the user
 if( $f_username !== null ) {
 	if( !rss_login( $f_username, $f_key ) ) {
-		access_denied();
+		Access::denied();
 	}
 } else {
 	if( OFF == config_get( 'allow_anonymous_login' ) ) {
-		access_denied();
+		Access::denied();
 	}
 }
 

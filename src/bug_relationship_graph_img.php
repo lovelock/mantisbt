@@ -33,9 +33,11 @@
  * @uses relationship_graph_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'bug_api.php' );
 require_api( 'compress_api.php' );
 require_api( 'config_api.php' );
@@ -49,7 +51,7 @@ require_api( 'relationship_graph_api.php' );
 auth_ensure_user_authenticated();
 
 if( ON != config_get( 'relationship_graph_enable' ) ) {
-	access_denied();
+	Access::denied();
 }
 
 $f_bug_id		= gpc_get_int( 'bug_id' );

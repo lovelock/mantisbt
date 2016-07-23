@@ -37,8 +37,10 @@
  * @uses string_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'bug_api.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
@@ -71,7 +73,7 @@ if( $t_bug->project_id != helper_get_current_project() ) {
 }
 
 if( !file_allow_bug_upload( $f_bug_id ) ) {
-	access_denied();
+	Access::denied();
 }
 
 file_process_posted_files_for_bug( $f_bug_id, $f_files );

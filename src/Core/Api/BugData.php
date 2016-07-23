@@ -49,9 +49,14 @@
  * @uses utility_api.php
  */
 
-require_api( 'access_api.php' );
+
+namespace Core\Api;
+use Mantis\Core\Api\Antispam;
+
+
+require_api( 'Access.php' );
 require_api( 'Antispam.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Authentication.php' );
 require_api( 'bugnote_api.php' );
 require_api( 'bug_revision_api.php' );
 require_api( 'category_api.php' );
@@ -74,12 +79,10 @@ require_api( 'tag_api.php' );
 require_api( 'user_api.php' );
 require_api( 'utility_api.php' );
 
-namespace Core\Api;
-use Mantis\Core\Api\Antispam;
 /**
  * Bug Data Structure Definition
  */
-class Bug {
+class BugData {
 	/**
 	 * Bug ID
 	 */

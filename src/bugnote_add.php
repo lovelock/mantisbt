@@ -37,8 +37,10 @@
  * @uses print_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'bug_api.php' );
 require_api( 'bugnote_api.php' );
 require_api( 'config_api.php' );
@@ -80,7 +82,7 @@ if( $f_private ) {
 # Handle the file upload
 if( $f_files !== null ) {
 	if( !file_allow_bug_upload( $f_bug_id ) ) {
-		access_denied();
+		Access::denied();
 	}
 
 	file_process_posted_files_for_bug( $f_bug_id, $f_files );

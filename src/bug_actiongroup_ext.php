@@ -37,7 +37,7 @@
  */
 
 require_once( 'core.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Authentication.php' );
 require_api( 'bug_api.php' );
 require_api( 'bug_group_action_api.php' );
 require_api( 'config_api.php' );

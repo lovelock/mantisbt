@@ -39,9 +39,11 @@
  * @uses utility_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'bug_api.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
@@ -59,7 +61,7 @@ form_security_validate( 'bug_set_sponsorship' );
 
 # anonymous users are not allowed to sponsor issues
 if( current_user_is_anonymous() ) {
-	access_denied();
+	Access::denied();
 }
 
 $f_bug_id	= gpc_get_int( 'bug_id' );

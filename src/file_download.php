@@ -36,14 +36,16 @@
  */
 
 # Prevent output of HTML in the content if errors occur
+use Mantis\Core\Api\Access;
+
 define( 'DISABLE_INLINE_ERROR_REPORTING', true );
 
 $g_bypass_headers = true; # suppress headers as we will send our own later
 define( 'COMPRESSION_DISABLED', true );
 
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'bug_api.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
@@ -90,7 +92,7 @@ switch( $f_type ) {
 		$t_query = 'SELECT * FROM {project_file} WHERE id=' . db_param();
 		break;
 	default:
-		access_denied();
+		Access::denied();
 }
 $t_result = db_query( $t_query, array( $c_file_id ) );
 $t_row = db_fetch_array( $t_result );
@@ -111,13 +113,13 @@ if( $f_type == 'bug' ) {
 switch( $f_type ) {
 	case 'bug':
 		if( !file_can_download_bug_attachments( $v_bug_id, (int)$v_user_id ) ) {
-			access_denied();
+			Access::denied();
 		}
 		break;
 	case 'doc':
 		# Check if project documentation feature is enabled.
 		if( OFF == config_get( 'enable_project_documentation' ) ) {
-			access_denied();
+			Access::denied();
 		}
 
 		access_ensure_project_level( config_get( 'view_proj_doc_threshold' ), $v_project_id );

@@ -50,7 +50,7 @@
  */
 
 require_once( 'core.php' );
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'bug_api.php' );
 require_api( 'category_api.php' );
 require_api( 'columns_api.php' );

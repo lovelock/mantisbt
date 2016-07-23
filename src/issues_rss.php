@@ -44,8 +44,10 @@
  * @uses utility_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'bug_api.php' );
 require_api( 'category_api.php' );
 require_api( 'config_api.php' );
@@ -67,17 +69,17 @@ $f_key = gpc_get_string( 'key', null );
 
 # make sure RSS syndication is enabled.
 if( OFF == config_get( 'rss_enabled' ) ) {
-	access_denied();
+	Access::denied();
 }
 
 # authenticate the user
 if( $f_username !== null ) {
 	if( !rss_login( $f_username, $f_key ) ) {
-		access_denied();
+		Access::denied();
 	}
 } else {
 	if( OFF == config_get( 'allow_anonymous_login' ) ) {
-		access_denied();
+		Access::denied();
 	}
 }
 
@@ -176,7 +178,7 @@ if( $f_filter_id == 0 ) {
 	# null will be returned if the user doesn't have access right to access the filter.
 	$t_custom_filter = filter_db_get_filter( $f_filter_id, $t_user_id );
 	if( null === $t_custom_filter ) {
-		access_denied();
+		Access::denied();
 	}
 
 	$t_custom_filter = filter_deserialize( $t_custom_filter );

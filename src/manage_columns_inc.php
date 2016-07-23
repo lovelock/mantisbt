@@ -38,8 +38,8 @@ if( !defined( 'MANAGE_COLUMNS_INC_ALLOW' ) ) {
 	return;
 }
 
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'columns_api.php' );
 require_api( 'constant_inc.php' );
 require_api( 'current_user_api.php' );

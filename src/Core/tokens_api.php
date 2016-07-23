@@ -31,7 +31,7 @@
  * @uses database_api.php
  */
 
-require_api( 'authentication_api.php' );
+require_api( 'Authentication.php' );
 require_api( 'constant_inc.php' );
 require_api( 'database_api.php' );
 

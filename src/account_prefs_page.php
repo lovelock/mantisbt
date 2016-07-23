@@ -47,7 +47,7 @@
  */
 
 require_once( 'core.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Authentication.php' );
 require_api( 'current_user_api.php' );
 require_api( 'html_api.php' );
 require_api( 'lang_api.php' );

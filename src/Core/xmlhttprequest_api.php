@@ -32,7 +32,7 @@
  * @uses profile_api.php
  */
 
-require_api( 'access_api.php' );
+require_api( 'Access.php' );
 require_api( 'bug_api.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );

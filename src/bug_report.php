@@ -49,9 +49,11 @@
  * @uses utility_api.php
  */
 
+use Mantis\Core\Api\Access;
+
 require_once( 'core.php' );
-require_api( 'access_api.php' );
-require_api( 'authentication_api.php' );
+require_api( 'Access.php' );
+require_api( 'Authentication.php' );
 require_api( 'bug_api.php' );
 require_api( 'config_api.php' );
 require_api( 'constant_inc.php' );
@@ -206,7 +208,7 @@ last_visited_issue( $t_bug_id );
 # Handle the file upload
 if( $f_files !== null ) {
 	if( !file_allow_bug_upload( $t_bug_id ) ) {
-		access_denied();
+		Access::denied();
 	}
 
 	file_process_posted_files_for_bug( $t_bug_id, $f_files );

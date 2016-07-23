@@ -1,0 +1,15 @@
+{
+    "name": "lovelock/mantisbt",
+    "type": "project",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Frost Wong",
+            "email": "frostwong@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"Mantis\\": "src/"}
+    }
+}
